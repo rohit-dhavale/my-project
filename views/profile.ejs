@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+        <script src="https://kit.fontawesome.com/6a8ca0cecd.js" crossorigin="anonymous"></script>
+    <title>Register</title>
+</head>
+<style>
+    label {
+        font-weight: bold;
+    }
+</style>
+
+<body>
+    <div class="container-fluid p-0 ">
+        <nav class="navbar navbar-expand-lg navbar-dark  text-light bg-dark">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/user/form">Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/user/userlist">All User List</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="/user/usersearch">Search User</a>
+                    </li>
+                    <li class="nav-item text-danger">
+                        <a class="nav-link text-danger" href="/user/userlogout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="row m-0 p-0">
+            <div class="col-2"></div>
+            <div class="col-8 ">
+                <div class="card mt-2 p-3 px-5 text-dark shadow-lg">
+                    <div class="row">
+                        <div class="col-3">
+                            <h3 class="text-center"><u> My Profile <i class="fa-solid fa-angle-right"></i></u></h3>
+                        </div>
+                        <div class="col-6">
+                            <div class="card px-3 mx-4 alert alert-danger">
+                                <marquee behavior="alternate" direction="left"><h3>Welcome <%=userdata.username%></h3></marquee>
+                                <div class="card-header text-center border-0">
+                                    <img src="/profiles/<%=userdata.userphoto%>" alt="" style="height: 100px;width: 100px;" class="img-thumbnail rounded-circle">
+                                </div>
+                                <div class="card-body border-0">
+                                    <i class="fa-solid fa-user"></i>
+                                    <span class="p-0 m-0 text-primary">My Name:</span>
+                                    <p class="px-3 py-0 my-0 ml-3" style="font-size: 20px;"><%=userdata.username%></p>
+                                    <hr class="p-0 m-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span class="p-0 m-0 text-primary">My Email Address:</span>
+                                    <p class="px-3 py-0 my-0 ml-3" style="font-size: 20px;"><%=userdata.useremail%></p>
+                                    <hr class="p-0 m-0">
+                                    <i class="fa-solid fa-neuter"></i>
+                                    <span class="p-0 m-0 text-primary">My Gender:</span>
+                                    <p class="px-3 py-0 my-0 ml-3" style="font-size: 20px;"><%=userdata.gender%></p>
+                                    <hr class="p-0 m-0">
+                                    <i class="fa-solid fa-address-card"></i>
+                                    <span class="p-0 m-0 text-primary">My Address:</span>
+                                    <p class="px-3 py-0 my-0 ml-3" style="font-size: 20px;"><%=userdata.useraddress%></p>
+                                    <hr class="p-0 m-0">
+                                    <i class="fa-solid fa-flag"></i>
+                                    <span class="p-0 m-0 text-primary">My Country:</span>
+                                    <p class="px-3 py-0 my-0 ml-3" style="font-size: 20px;"><%=userdata.usercountry%></p>
+                                    <hr class="p-0 m-0">
+                                    <i class="fa-solid fa-lock"></i>
+                                    <span class="p-0 m-0 text-primary">My Password:</span>
+                                    <p class="px-3 py-0 my-0 ml-3" style="font-size: 20px;"><%=userdata.userpassword%></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-3">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</body>
+
+</html>

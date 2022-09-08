@@ -1,16 +1,22 @@
-const express = require('express');
-const mongodb = require('mongodb').MongoClient;
-const app = express();
-let db;
-const port = process.env.PORT || 3000;
-app.use(express.json());
-const url = `mongodb://localhost:27017/companydb`;
-mongodb.connect(url,{
-    useNewUrlParser:true,
-    useUnifiedTopology:true
-},(err,client)=>{
-    db = client.db();
-    app.listen(port,()=>{
-        console.log(`Connection is on port ${port}`);
-    });
+const { MongoClient } = require('mongodb');
+const connectionString = `mongodb://localhost:27017`;
+const client = new MongoClient(connectionString, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
+let dbConnection;
+module.exports = {
+  connectToServer: function (callback) {
+    client.connect(function (err, db) {
+      if (err || !db) {
+        return callback(err);
+      }
+      dbConnection = db.db('companydb');
+      console.log('Successfully connected to MongoDB.');
+      return callback();
+    });
+  },
+  getDb: function () {
+    return dbConnection;
+  },
+};
